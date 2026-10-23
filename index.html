@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>2026年9月武汉市房地产市场分析报告</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
 <style>
 :root{
   --brand:#0a4d8c; --brand-light:#eaf2fa; --accent:#d4380d;
@@ -37,6 +38,10 @@ td:first-child{color:#445}
 tr:nth-child(even) td{background:#f4f8fc}
 tr.hl td{background:#fdf3ec!important;font-weight:700}
 tr.grp td{background:#dce9f5!important;font-weight:700;color:var(--brand)}
+figure.chart-box{background:var(--card);border-radius:10px;padding:14px 10px 8px;margin:12px 0;box-shadow:0 1px 4px rgba(0,0,0,.07)}
+figure.chart-box .chart{width:100%;height:340px}
+figure.chart-box figcaption{font-size:13px;font-weight:700;color:#334;padding:0 8px 4px}
+figure.chart-box .src{margin:2px 8px 4px}
 td.tl{text-align:left;white-space:normal;line-height:1.7}
 .src{color:var(--muted);font-size:12px;margin:2px 0 16px}
 .pos{color:var(--up);font-weight:600}
@@ -104,6 +109,12 @@ footer{margin-top:48px;text-align:center;color:var(--muted);font-size:12px;borde
 <h2>1．成交量：9月环比由降转升，市场动能有所回暖</h2>
 <p>2026年9月武汉市二手房网签成交<b>9,854套</b>，环比<b class="pos">+6%</b>，同比<b class="pos">+17%</b>，成交活跃度由降转升。1-9月累计网签88,111套，同比+14%。</p>
 
+<figure class="chart-box">
+<figcaption>图：武汉市二手房网签套数</figcaption>
+<div class="chart" id="c1"></div>
+<p class="src">数据来源：中指数据</p>
+</figure>
+
 <div class="tbl-title">表：武汉市二手房网签套数同环比变化</div>
 <table>
 <tr><th>指标</th><th>26年04月</th><th>26年05月</th><th>26年06月</th><th>26年07月</th><th>26年08月</th><th>26年09月</th></tr>
@@ -151,6 +162,12 @@ footer{margin-top:48px;text-align:center;color:var(--muted);font-size:12px;borde
 
 <h2>2．成交均价：9月均价环比延续上涨，整体低位波动</h2>
 <p>贝壳平台数据显示，2026年9月武汉市二手房成交均价为<b>9,310元/平方米</b>，环比<b class="pos">+2.1%</b>，同比<b class="neg">-6.9%</b>，整体仍处于低位波动区间。</p>
+
+<figure class="chart-box">
+<figcaption>图：武汉市贝壳平台二手房成交均价及环比变化</figcaption>
+<div class="chart" id="c2"></div>
+<p class="src">数据来源：贝壳研究院整理</p>
+</figure>
 <p>分区域来看，中心城区价格环比涨跌互现，武昌、洪山上涨，江岸跌幅在各区中居前；近郊两区均上涨；远郊分化明显，蔡甸（+17.1%）、沌口（+10.5%）、黄陂（+5.3%）涨幅居前，价格基数较低同时结构性变化均加大了价格波动幅度，汉南跌幅最大（-4.3%）。同比来看，各区价格同比仍下跌，中心城区同比跌幅主要集中在7%-16%之间。</p>
 
 <div class="tbl-title">表：2026年9月武汉市各区贝壳平台二手房成交均价及同环比变化</div>
@@ -205,7 +222,20 @@ footer{margin-top:48px;text-align:center;color:var(--muted);font-size:12px;borde
 
 <h2>4．业客行为：供需环比均增长，景气指数再度转降</h2>
 <p>9月新增挂牌<b>1.96万套</b>，环比<b class="pos">+13%</b>、同比<b class="neg">-1%</b>；看房客源<b>5.01万组</b>，环比<b class="pos">+3%</b>、同比<b class="pos">+2%</b>。供需两端环比均增长，短期内市场呈现供需两旺态势。</p>
+
+<figure class="chart-box">
+<figcaption>图：武汉市贝壳平台二手房新增房客源量</figcaption>
+<div class="chart" id="c3"></div>
+<p class="src">数据来源：贝壳研究院整理</p>
+</figure>
+
 <p>2026年9月，武汉市二手房景气指数为<b>9.5</b>，环比<b class="neg">-0.5</b>，短暂走稳趋势未能延续，业主价格信心未见明显改善，房价走势压力仍存。</p>
+
+<figure class="chart-box">
+<figcaption>图：武汉市贝壳平台二手房景气指数</figcaption>
+<div class="chart" id="c4"></div>
+<p class="src">数据来源：贝壳研究院</p>
+</figure>
 <h1 class="sec" id="s2">二、新房市场</h1>
 
 <h2>1．供应：9月土拍与批准上市规模均明显放量</h2>
@@ -229,9 +259,28 @@ footer{margin-top:48px;text-align:center;color:var(--muted);font-size:12px;borde
 
 <p>新房供应方面，9月武汉市新房批准上市套数为<b>8,973套</b>，环比<b class="pos">+169%</b>，同比<b class="neg">-37%</b>；1-9月批准上市套数累计为38,162套，同比-38%。9月开发商把握“金九银十”传统旺季加大推盘力度，新房供应集中放量。</p>
 
+<figure class="chart-box">
+<figcaption>图：武汉市新房批准上市套数与同比变化</figcaption>
+<div class="chart" id="c5"></div>
+<p class="src">数据来源：中指数据</p>
+</figure>
+
 <h2>2．成交：9月新房网签数据受滞后影响有所回落，价格延续修复</h2>
 <p>2026年9月，武汉市新房网签成交<b>6,589套</b>，环比<b class="neg">-17%</b>，同比<b class="neg">-6%</b>。1-9月累计网签约67,855套，同比增长2%，修复节奏阶段性放缓。9月是传统销售旺季，武汉贝壳新房带看、认购量环比增长均超10%，网签量可能受滞后影响，将在10月数据中逐步体现。</p>
+
+<figure class="chart-box">
+<figcaption>图：武汉市新房网签套数与同比变化</figcaption>
+<div class="chart" id="c6"></div>
+<p class="src">数据来源：中指数据</p>
+</figure>
+
 <p>新房成交均价温和上涨。2026年9月，武汉市新房成交均价为<b>13,523元/平方米</b>，环比<b class="pos">+0.4%</b>，同比<b class="pos">+9.0%</b>，同比涨幅较8月扩大，价格修复动能延续。</p>
+
+<figure class="chart-box">
+<figcaption>图：武汉市新房成交均价及环比变化</figcaption>
+<div class="chart" id="c7"></div>
+<p class="src">数据来源：中指数据</p>
+</figure>
 <p>成交结构方面，1-9月100万元以上占比69%，90平以上占比86%，均与1-8月基本持平。短期来看，成交结构基本平稳；长期来看，150万元以上、120平以上房源成交占比呈提升态势。</p>
 
 <div class="tbl-title">表：武汉市新房成交套总价结构</div>
@@ -258,7 +307,20 @@ footer{margin-top:48px;text-align:center;color:var(--muted);font-size:12px;borde
 
 <h2>3．库存：9月取证未售套数环比上升，出清周期进一步延长</h2>
 <p>截至2026年9月，武汉市新房取证未售套数为<b>11.86万套</b>，环比上升<b class="neg">4.0%</b>，同比下降<b class="pos">7.2%</b>。新房库存由降转升，主要受短期供应增加、网签成交回落影响。</p>
+
+<figure class="chart-box">
+<figcaption>图：武汉市新房取证未售套数与同环比变化</figcaption>
+<div class="chart" id="c8"></div>
+<p class="src">数据来源：中指数据</p>
+</figure>
+
 <p>库存出清周期进一步延长。2026年9月，武汉市新房取证未售库存出清周期<b>16.7个月</b>，环比延长0.9个月，同比延长3.2个月。随着库存规模由降转升，库存压力有所加大。</p>
+
+<figure class="chart-box">
+<figcaption>图：武汉市新房取证未售库存出清周期</figcaption>
+<div class="chart" id="c9"></div>
+<p class="src">数据来源：中指数据</p>
+</figure>
 <p>分区域来看，多数区域出清周期普遍延长，远郊区去化压力尤为突出。中心城区中，青山区最低（12.0个月，环比+2.9），江汉区最高（21.7个月，环比+1.1）。近郊两区出清周期相对合理。远郊区中，新洲、汉南、黄陂出清周期均超24个月，去化压力突出。</p>
 
 <div class="tbl-title">表：2026年9月武汉市各区新房取证未售套数与出清周期</div>
@@ -344,6 +406,12 @@ footer{margin-top:48px;text-align:center;color:var(--muted);font-size:12px;borde
 
 <h2>2．租金：9月租金环比加速下跌，租售比短期平稳</h2>
 <p>贝壳研究院数据显示，2026年9月武汉市住房租金为<b>23.3元/平方米/月</b>，环比<b class="neg">-3.1%</b>，同比<b class="neg">-1.0%</b>。随着成交量回落，租金季节性下跌幅度加大。</p>
+
+<figure class="chart-box">
+<figcaption>图：武汉市贝壳平台住房租金水平及环比变化</figcaption>
+<div class="chart" id="c10"></div>
+<p class="src">数据来源：贝壳研究院整理</p>
+</figure>
 <p>区域层面，多数区域租金环比下跌。中心城区环比跌幅集中在0.1%-5.2%，青山、硚口跌幅居前，江汉（-0.1%）相对平稳；近郊两区均小幅下跌；远郊涨跌分化，蔡甸（+3.4%）逆势上涨，其余各区均环比下跌，新洲跌幅最大。</p>
 
 <div class="tbl-title">表：2026年9月武汉市各区贝壳平台租金及同环比变化</div>
@@ -371,6 +439,12 @@ footer{margin-top:48px;text-align:center;color:var(--muted);font-size:12px;borde
 <p class="src">数据来源：贝壳研究院整理</p>
 
 <p>租售比方面，2026年9月武汉市住房租售比为<b>3.19%</b>，较上月下降0.02个百分点，较去年同期提高0.25个百分点。随着短期房价走势有所趋稳，租售比上行态势也有所放缓。</p>
+
+<figure class="chart-box">
+<figcaption>图：武汉市租售比变化趋势</figcaption>
+<div class="chart" id="c11"></div>
+<p class="src">数据来源：贝壳研究院整理</p>
+</figure>
 <h1 class="sec" id="s4">四、重点城市市场</h1>
 <p>9月重点城市中，多数城市二手房成交量环同比均增长，其中苏州同比增幅近30%，居各城之首。新房成交量同比延续分化态势，北京、上海同比在30%左右，增幅居前；杭州、重庆同比降幅超30%。</p>
 <p>武汉9月二手市场量价表现居前，成交量同比增幅位列第三，均价环比也处中上水平。新房成交量同比、均价环比均处于中游水平。</p>
@@ -480,6 +554,192 @@ footer{margin-top:48px;text-align:center;color:var(--muted);font-size:12px;borde
 </footer>
 </main>
 <script>
+// ===== 图表数据（提取自原报告嵌入图表）=====
+var CHART_DATA = {"chart1":[{"name":"成交套数","cats":["24-09","24-10","24-11","24-12","25-01","25-02","25-03","25-04","25-05","25-06","25-07","25-08","25-09","25-10","25-11","25-12","26-01","26-02","26-03","26-04","26-05","26-06","26-07","26-08","26-09"],"vals":[7083,8023,8461,12105,7570,6089,10272,10030,8812,8931,9038,8180,8411,7703,9206,9262,9005,5473,10311,12435,10861,10611,10254,9307,9854]}],
+"chart2":[{"name":"环比（右轴）","cats":["24-09","24-10","24-11","24-12","25-01","25-02","25-03","25-04","25-05","25-06","25-07","25-08","25-09","25-10","25-11","25-12","26-01","26-02","26-03","26-04","26-05","26-06","26-07","26-08","26-09"],"vals":[-0.0027,0.0104,0.0157,-0.0115,0.0060,-0.0728,0.0059,-0.0330,-0.0181,-0.0286,0.0047,-0.0324,-0.0165,-0.0088,-0.0014,-0.0274,0.0187,-0.0727,0.0012,0.0137,-0.0127,0.0207,-0.0303,0.0106,0.0209]},{"name":"成交均价","cats":["24-09","24-10","24-11","24-12","25-01","25-02","25-03","25-04","25-05","25-06","25-07","25-08","25-09","25-10","25-11","25-12","26-01","26-02","26-03","26-04","26-05","26-06","26-07","26-08","26-09"],"vals":[11918,12042,12231,12090,12163,11277,11344,10970,10772,10464,10512,10172,10004,9916,9902,9631,9811,9097,9108,9233,9116,9305,9023,9119,9310]}],
+"chart3":[{"name":"新增挂牌房源量（套）","cats":["24-09","24-10","24-11","24-12","25-01","25-02","25-03","25-04","25-05","25-06","25-07","25-08","25-09","25-10","25-11","25-12","26-01","26-02","26-03","26-04","26-05","26-06","26-07","26-08","26-09"],"vals":[21297,19397,19335,19227,11298,23223,27332,23486,20032,20177,18818,19088,19853,18628,18814,17386,15508,8034,23637,20142,18575,18513,17677,17378,19580]},{"name":"看房客源量（组）","cats":["24-09","24-10","24-11","24-12","25-01","25-02","25-03","25-04","25-05","25-06","25-07","25-08","25-09","25-10","25-11","25-12","26-01","26-02","26-03","26-04","26-05","26-06","26-07","26-08","26-09"],"vals":[45902,57172,55012,49437,30264,48546,62573,52558,52648,49688,45093,46360,49106,51210,52587,49773,46777,24674,66883,62110,59929,52718,47066,48667,50091]}],
+"chart4":[{"name":"景气指数","cats":["24-08","24-09","24-10","24-11","24-12","25-01","25-02","25-03","25-04","25-05","25-06","25-07","25-08","25-09","25-10","25-11","25-12","26-01","26-02","26-03","26-04","26-05","26-06","26-07","26-08","26-09"],"vals":[6.2,6.6,9.5,8.6,7.7,7.7,6.8,7.1,5.8,5.8,5.5,5.7,5.5,5.6,5.8,5.8,5.7,7.4,10.8,10.8,11.3,11.9,11.4,9.9,10.0,9.5]}],
+"chart5":[{"name":"批准上市套数","cats":["24-09","24-10","24-11","24-12","25-01","25-02","25-03","25-04","25-05","25-06","25-07","25-08","25-09","25-10","25-11","25-12","26-01","26-02","26-03","26-04","26-05","26-06","26-07","26-08","26-09"],"vals":[8685,2984,26109,15961,2813,1766,7661,8715,9415,9486,4170,3494,14171,5338,6724,14723,2507,1136,2707,5480,4039,6524,3457,3339,8973]},{"name":"同比（右轴）","cats":["24-09","24-10","24-11","24-12","25-01","25-02","25-03","25-04","25-05","25-06","25-07","25-08","25-09","25-10","25-11","25-12","26-01","26-02","26-03","26-04","26-05","26-06","26-07","26-08","26-09"],"vals":[-0.1197,-0.3429,2.6537,1.0250,0.0692,0.0051,0.1164,0.4414,1.1067,-0.2071,0.1599,-0.1767,0.6317,0.7889,-0.7425,-0.0776,-0.1088,-0.3567,-0.6467,-0.3712,-0.5710,-0.3122,-0.1710,-0.0444,-0.3668]}],
+"chart6":[{"name":"成交套数","cats":["24-09","24-10","24-11","24-12","25-01","25-02","25-03","25-04","25-05","25-06","25-07","25-08","25-09","25-10","25-11","25-12","26-01","26-02","26-03","26-04","26-05","26-06","26-07","26-08","26-09"],"vals":[4564,10919,16767,28331,5136,5084,8613,5294,7653,12618,8212,6638,6985,10447,10753,22152,3400,2360,12190,5538,9243,12910,7725,7900,6589]},{"name":"同比（右轴）","cats":["24-09","24-10","24-11","24-12","25-01","25-02","25-03","25-04","25-05","25-06","25-07","25-08","25-09","25-10","25-11","25-12","26-01","26-02","26-03","26-04","26-05","26-06","26-07","26-08","26-09"],"vals":[-0.3458,-0.0975,1.8899,1.4644,-0.0452,0.8177,0.4324,0.0645,0.2633,0.5761,0.0503,0.1740,0.5305,-0.0432,-0.3587,-0.2181,-0.3380,-0.5358,0.4153,0.0461,0.2078,0.0231,-0.0593,0.1901,-0.0567]}],
+"chart7":[{"name":"环比（右轴）","cats":["24-09","24-10","24-11","24-12","25-01","25-02","25-03","25-04","25-05","25-06","25-07","25-08","25-09","25-10","25-11","25-12","26-01","26-02","26-03","26-04","26-05","26-06","26-07","26-08","26-09"],"vals":[0.0431,0.0276,-0.1662,-0.0908,-0.0080,0.1828,-0.0575,0.1672,-0.0266,-0.1128,0.0374,-0.0071,-0.0148,-0.1035,-0.0461,-0.0112,0.4081,-0.1444,0.1146,0.0039,0.1021,-0.1013,-0.0855,0.0516,0.0042]},{"name":"成交均价","cats":["24-09","24-10","24-11","24-12","25-01","25-02","25-03","25-04","25-05","25-06","25-07","25-08","25-09","25-10","25-11","25-12","26-01","26-02","26-03","26-04","26-05","26-06","26-07","26-08","26-09"],"vals":[14071,14460,12057,10962,10874,12862,12122,14149,13773,12220,12677,12587,12401,11118,10606,10487,14767,12635,14083,14138,15582,14004,12806,13467,13523]}],
+"chart8":[{"name":"取证未售套数","cats":["24-09","24-10","24-11","24-12","25-01","25-02","25-03","25-04","25-05","25-06","25-07","25-08","25-09","25-10","25-11","25-12","26-01","26-02","26-03","26-04","26-05","26-06","26-07","26-08","26-09"],"vals":[141089,135362,130920,128039,127621,126286,125937,127405,125954,125737,125672,125252,127836,125566,121849,120156,119140,118882,117622,118369,115070,114273,114233,114001,118576]},{"name":"环比（右轴）","cats":["24-09","24-10","24-11","24-12","25-01","25-02","25-03","25-04","25-05","25-06","25-07","25-08","25-09","25-10","25-11","25-12","26-01","26-02","26-03","26-04","26-05","26-06","26-07","26-08","26-09"],"vals":[0.0313,-0.0406,-0.0328,-0.0220,-0.0033,-0.0105,-0.0028,0.0117,-0.0114,-0.0017,-0.0005,-0.0033,0.0206,-0.0178,-0.0296,-0.0139,-0.0085,-0.0022,-0.0106,0.0064,-0.0279,-0.0069,-0.0004,-0.0020,0.0401]},{"name":"同比（右轴）","cats":["24-09","24-10","24-11","24-12","25-01","25-02","25-03","25-04","25-05","25-06","25-07","25-08","25-09","25-10","25-11","25-12","26-01","26-02","26-03","26-04","26-05","26-06","26-07","26-08","26-09"],"vals":[-0.0308,-0.0282,-0.0647,-0.0744,-0.0690,-0.0748,-0.0913,-0.0963,-0.1026,-0.0894,-0.0856,-0.0844,-0.0939,-0.0724,-0.0693,-0.0616,-0.0665,-0.0586,-0.0660,-0.0709,-0.0864,-0.0912,-0.0910,-0.0898,-0.0724]}],
+"chart9":[{"name":"出清周期","cats":["24-09","24-10","24-11","24-12","25-01","25-02","25-03","25-04","25-05","25-06","25-07","25-08","25-09","25-10","25-11","25-12","26-01","26-02","26-03","26-04","26-05","26-06","26-07","26-08","26-09"],"vals":[21.87,21.41,18.49,14.93,14.92,14.51,14.23,14.41,14.10,13.72,13.65,13.54,13.53,13.39,13.70,14.58,14.58,14.94,15.18,15.21,14.65,15.15,15.57,15.79,16.74]}],
+"chart10":[{"name":"环比（右轴）","cats":["24-09","24-10","24-11","24-12","25-01","25-02","25-03","25-04","25-05","25-06","25-07","25-08","25-09","25-10","25-11","25-12","26-01","26-02","26-03","26-04","26-05","26-06","26-07","26-08","26-09"],"vals":[-0.0313,-0.0106,0.0098,-0.0041,0.0034,-0.0377,0.0077,-0.0098,-0.0105,0.0159,0.0286,-0.0070,-0.0382,-0.0046,-0.0010,-0.0056,-0.0057,0.0053,-0.0085,-0.0040,0.0048,0.0120,0.0314,-0.0020,-0.0313]},{"name":"租金水平","cats":["24-09","24-10","24-11","24-12","25-01","25-02","25-03","25-04","25-05","25-06","25-07","25-08","25-09","25-10","25-11","25-12","26-01","26-02","26-03","26-04","26-05","26-06","26-07","26-08","26-09"],"vals":[24.85,24.58,24.82,24.72,24.80,23.87,24.05,23.82,23.57,23.94,24.63,24.45,23.52,23.41,23.39,23.26,23.13,23.25,23.05,22.96,23.07,23.34,24.08,24.03,23.28]}],
+"chart11":[{"name":"租售比","cats":["24-09","24-10","24-11","24-12","25-01","25-02","25-03","25-04","25-05","25-06","25-07","25-08","25-09","25-10","25-11","25-12","26-01","26-02","26-03","26-04","26-05","26-06","26-07","26-08","26-09"],"vals":[0.0257,0.0255,0.0253,0.0251,0.0257,0.0258,0.0261,0.0263,0.0270,0.0277,0.0282,0.0287,0.0294,0.0297,0.0303,0.0307,0.0312,0.0318,0.0321,0.0316,0.0316,0.0319,0.0321,0.0320,0.0319]}]};
+
+// ===== ECharts 绘图 =====
+if (window.echarts) {
+(function(){
+  var C = {bar:'#0a4d8c', bar2:'#4a90d9', line:'#d4380d', line2:'#2e9e5b', area:'#0a4d8c'};
+  var grid = {left:56, right:60, top:36, bottom:46};
+  var tip = {trigger:'axis', backgroundColor:'rgba(255,255,255,.96)', borderColor:'#d9e2ec',
+             textStyle:{color:'#1f2733', fontSize:12}, axisPointer:{type:'shadow', shadowStyle:{color:'rgba(10,77,140,.06)'}}};
+
+  function pct(v){ return (v*100).toFixed(1) + '%'; }
+
+  // 柱状图（单一序列）
+  function barChart(id, data, name, fmt){
+    var el = document.getElementById(id); if(!el) return;
+    var ch = echarts.init(el);
+    ch.setOption({
+      tooltip: tip,
+      legend: {top: 2, data:[name], textStyle:{fontSize:12}},
+      grid: grid,
+      xAxis: {type:'category', data:data.cats, axisLabel:{interval:3, fontSize:10, color:'#6b7280'}, axisLine:{lineStyle:{color:'#d9e2ec'}}, axisTick:{show:false}},
+      yAxis: {type:'value', name:(name.indexOf('套数')>-1?'套':name.indexOf('周期')>-1?'月':''), nameTextStyle:{color:'#6b7280'}, axisLabel:{formatter:function(v){return v>=10000?(v/10000)+'万':v;}, color:'#6b7280', fontSize:11}, splitLine:{lineStyle:{color:'#eef2f7'}}},
+      series: [{name:name, type:'bar', data:data.vals, barMaxWidth:22, itemStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#1163a8'},{offset:1,color:'#0a4d8c'}]), borderRadius:[3,3,0,0]},
+        markPoint:{data:[{type:'max',name:'最大'},{type:'min',name:'最小'}], symbolSize:38, itemStyle:{color:'#4a90d9'}, label:{fontSize:10,color:'#fff',formatter:function(p){return fmt?fmt(p.value):p.value;}}}}
+      ]
+    });
+    return ch;
+  }
+
+  // 柱 + 折线（右轴百分比）
+  function barLineChart(id, barName, lineName, barVals, lineVals, cats, lineFmt){
+    var el = document.getElementById(id); if(!el) return;
+    var ch = echarts.init(el);
+    ch.setOption({
+      tooltip: Object.assign({}, tip, {formatter: function(ps){
+        var s = ps[0].axisValue;
+        ps.forEach(function(p){
+          var v = p.seriesName === lineName ? (lineFmt==='pct'? pct(p.value) : p.value) : (p.value>=10000 ? (p.value/10000).toFixed(2)+'万' : p.value);
+          s += '<br/>' + p.marker + p.seriesName + '：' + v;
+        });
+        return s;
+      }}),
+      legend: {top: 2, textStyle:{fontSize:12}},
+      grid: grid,
+      xAxis: {type:'category', data:cats, axisLabel:{interval:3, fontSize:10, color:'#6b7280'}, axisLine:{lineStyle:{color:'#d9e2ec'}}, axisTick:{show:false}},
+      yAxis: [
+        {type:'value', axisLabel:{formatter:function(v){return v>=10000?(v/10000)+'万':v;}, color:'#6b7280', fontSize:11}, splitLine:{lineStyle:{color:'#eef2f7'}}},
+        {type:'value', axisLabel:{formatter:function(v){return (v*100).toFixed(0)+'%';}, color:'#d4380d', fontSize:11}, splitLine:{show:false}}
+      ],
+      series: [
+        {name:barName, type:'bar', data:barVals, barMaxWidth:22, itemStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#1163a8'},{offset:1,color:'#0a4d8c'}]), borderRadius:[3,3,0,0]}},
+        {name:lineName, type:'line', yAxisIndex:1, data:lineVals, smooth:true, symbol:'circle', symbolSize:5,
+         lineStyle:{width:2.5, color:C.line}, itemStyle:{color:C.line},
+         areaStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(212,56,13,.15)'},{offset:1,color:'rgba(212,56,13,0)'}])}}
+      ]
+    });
+    return ch;
+  }
+
+  // 折线图（单/双序列）
+  function lineChart(id, defs, cats, yName, fmt){
+    var el = document.getElementById(id); if(!el) return;
+    var ch = echarts.init(el);
+    var sers = defs.map(function(d, i){
+      var col = i===0 ? C.line : C.line2;
+      return {name:d.name, type:'line', data:d.vals, smooth:true, symbol:'circle', symbolSize:5,
+        lineStyle:{width:2.5, color:col}, itemStyle:{color:col},
+        areaStyle: i===0 ? {color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(212,56,13,.12)'},{offset:1,color:'rgba(212,56,13,0)'}])} : null};
+    });
+    ch.setOption({
+      tooltip: Object.assign({}, tip, {formatter: function(ps){
+        var s = ps[0].axisValue;
+        ps.forEach(function(p){
+          var v = fmt==='pct' ? (p.value*100).toFixed(2)+'%' : (fmt==='index'? p.value.toFixed(1) : p.value.toFixed(1));
+          s += '<br/>' + p.marker + p.seriesName + '：' + v;
+        });
+        return s;
+      }}),
+      legend: {top: 2, textStyle:{fontSize:12}},
+      grid: grid,
+      xAxis: {type:'category', data:cats, axisLabel:{interval:3, fontSize:10, color:'#6b7280'}, boundaryGap:false, axisLine:{lineStyle:{color:'#d9e2ec'}}, axisTick:{show:false}},
+      yAxis: {type:'value', name:yName, nameTextStyle:{color:'#6b7280'}, axisLabel:{formatter:function(v){return fmt==='pct'? (v*100).toFixed(1)+'%' : v;}, color:'#6b7280', fontSize:11}, splitLine:{lineStyle:{color:'#eef2f7'}}},
+      series: sers
+    });
+    return ch;
+  }
+
+  var D = CHART_DATA;
+  var charts = [];
+  // c1 二手房网签套数
+  charts.push(barChart('c1', {cats:D.chart1[0].cats, vals:D.chart1[0].vals}, '成交套数'));
+  // c2 二手成交均价 + 环比（右轴）
+  charts.push(barLineChart('c2', D.chart2[1].name, D.chart2[0].name, D.chart2[1].vals, D.chart2[0].vals, D.chart2[0].cats, 'pct'));
+  // c3 新增挂牌 + 看房客源
+  charts.push((function(){
+    var el = document.getElementById('c3'); if(!el) return null;
+    var ch = echarts.init(el);
+    ch.setOption({
+      tooltip: tip,
+      legend: {top: 2, textStyle:{fontSize:12}},
+      grid: grid,
+      xAxis: {type:'category', data:D.chart3[0].cats, axisLabel:{interval:3, fontSize:10, color:'#6b7280'}, axisLine:{lineStyle:{color:'#d9e2ec'}}, axisTick:{show:false}},
+      yAxis: {type:'value', name:'套/组', nameTextStyle:{color:'#6b7280'}, axisLabel:{formatter:function(v){return v>=10000?(v/10000)+'万':v;}, color:'#6b7280', fontSize:11}, splitLine:{lineStyle:{color:'#eef2f7'}}},
+      series: [
+        {name:D.chart3[0].name, type:'bar', data:D.chart3[0].vals, barMaxWidth:22, itemStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#1163a8'},{offset:1,color:'#0a4d8c'}]), borderRadius:[3,3,0,0]}},
+        {name:D.chart3[1].name, type:'line', data:D.chart3[1].vals, smooth:true, symbol:'none', lineStyle:{width:2.5, color:C.line2}, itemStyle:{color:C.line2}}
+      ]
+    });
+    return ch;
+  })());
+  // c4 景气指数
+  charts.push(lineChart('c4', [{name:'景气指数', vals:D.chart4[0].vals}], D.chart4[0].cats, '', 'index'));
+  // c5 批准上市 + 同比
+  charts.push(barLineChart('c5', D.chart5[0].name, D.chart5[1].name, D.chart5[0].vals, D.chart5[1].vals, D.chart5[0].cats, 'pct'));
+  // c6 新房网签 + 同比
+  charts.push(barLineChart('c6', D.chart6[0].name, D.chart6[1].name, D.chart6[0].vals, D.chart6[1].vals, D.chart6[0].cats, 'pct'));
+  // c7 新房均价 + 环比
+  charts.push(barLineChart('c7', D.chart7[1].name, D.chart7[0].name, D.chart7[1].vals, D.chart7[0].vals, D.chart7[0].cats, 'pct'));
+  // c8 取证未售 + 环比 + 同比（右轴两条线）
+  charts.push((function(){
+    var el = document.getElementById('c8'); if(!el) return null;
+    var ch = echarts.init(el);
+    ch.setOption({
+      tooltip: Object.assign({}, tip, {formatter: function(ps){
+        var s = ps[0].axisValue;
+        ps.forEach(function(p){
+          var v = p.seriesName === '取证未售套数' ? (p.value/10000).toFixed(2)+'万套' : pct(p.value);
+          s += '<br/>' + p.marker + p.seriesName + '：' + v;
+        });
+        return s;
+      }}),
+      legend: {top: 2, textStyle:{fontSize:12}},
+      grid: grid,
+      xAxis: {type:'category', data:D.chart8[0].cats, axisLabel:{interval:3, fontSize:10, color:'#6b7280'}, axisLine:{lineStyle:{color:'#d9e2ec'}}, axisTick:{show:false}},
+      yAxis: [
+        {type:'value', axisLabel:{formatter:function(v){return (v/10000)+'万';}, color:'#6b7280', fontSize:11}, splitLine:{lineStyle:{color:'#eef2f7'}}},
+        {type:'value', axisLabel:{formatter:function(v){return (v*100).toFixed(0)+'%';}, color:'#d4380d', fontSize:11}, splitLine:{show:false}}
+      ],
+      series: [
+        {name:D.chart8[0].name, type:'bar', data:D.chart8[0].vals, barMaxWidth:22, itemStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#1163a8'},{offset:1,color:'#0a4d8c'}]), borderRadius:[3,3,0,0]}},
+        {name:D.chart8[1].name, type:'line', yAxisIndex:1, data:D.chart8[1].vals, smooth:true, symbol:'none', lineStyle:{width:2, color:C.line}, itemStyle:{color:C.line}},
+        {name:D.chart8[2].name, type:'line', yAxisIndex:1, data:D.chart8[2].vals, smooth:true, symbol:'none', lineStyle:{width:2, color:C.line2, type:'dashed'}, itemStyle:{color:C.line2}}
+      ]
+    });
+    return ch;
+  })());
+  // c9 出清周期
+  charts.push((function(){
+    var el = document.getElementById('c9'); if(!el) return null;
+    var ch = echarts.init(el);
+    ch.setOption({
+      tooltip: Object.assign({}, tip, {axisPointer:{type:'line'}}),
+      legend: {top: 2, textStyle:{fontSize:12}},
+      grid: grid,
+      xAxis: {type:'category', data:D.chart9[0].cats, axisLabel:{interval:3, fontSize:10, color:'#6b7280'}, boundaryGap:false, axisLine:{lineStyle:{color:'#d9e2ec'}}, axisTick:{show:false}},
+      yAxis: {type:'value', name:'月', nameTextStyle:{color:'#6b7280'}, axisLabel:{color:'#6b7280', fontSize:11}, splitLine:{lineStyle:{color:'#eef2f7'}}},
+      series: [{name:'出清周期', type:'line', data:D.chart9[0].vals, smooth:true, symbol:'circle', symbolSize:5,
+        lineStyle:{width:2.5, color:C.line}, itemStyle:{color:C.line},
+        areaStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(212,56,13,.15)'},{offset:1,color:'rgba(212,56,13,0)'}])},
+        markPoint:{data:[{type:'max',name:'最大'},{type:'min',name:'最小'}], symbolSize:38, itemStyle:{color:'#d4380d'}, label:{fontSize:10,color:'#fff',formatter:function(p){return p.value.toFixed(1);}}}}
+      ]
+    });
+    return ch;
+  })());
+  // c10 租金 + 环比
+  charts.push(barLineChart('c10', D.chart10[1].name, D.chart10[0].name, D.chart10[1].vals, D.chart10[0].vals, D.chart10[0].cats, 'pct'));
+  // c11 租售比
+  charts.push(lineChart('c11', [{name:'租售比', vals:D.chart11[0].vals}], D.chart11[0].cats, '', 'pct'));
+
+  window.addEventListener('resize', function(){
+    charts.forEach(function(c){ if(c) c.resize(); });
+  });
+})();
+}
+
 // 顶部导航高亮当前章节
 (function(){
   var links = document.querySelectorAll('nav#toc a');
